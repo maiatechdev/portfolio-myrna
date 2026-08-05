@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// PLACEHOLDER: os slugs virão de uma query ao Sanity (caseCompleto + estudoCurto).
+// Layout da página varia por tipo de conteúdo — a decidir quando os schemas existirem.
+export function getStaticPaths() {
+	return [
+		{ params: { slug: 'centro-cultural-rua' } },
+		{ params: { slug: 'capilla-de-las-sombras' } },
+		{ params: { slug: 'limiar' } },
+		{ params: { slug: 'cozinha-safira' } },
+	];
+}
+
+const { slug } = Astro.params;
+---
+
+<Layout title={`${slug} — Ana Myrna Matos`}>
+	<main>
+		<!-- Página do projeto entra aqui, layout diferente por tipo de conteúdo (caseCompleto / estudoCurto) -->
+	</main>
+</Layout>

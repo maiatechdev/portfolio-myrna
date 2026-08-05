@@ -108,6 +108,7 @@ Só depois disso: schemas do Sanity e páginas de projeto.
 
 ## Como trabalhar aqui
 
+- Ao subir o dev server, usar modo background: `astro dev --background`. Gerenciar com `astro dev stop`, `astro dev status`, `astro dev logs`.
 - Commits pequenos, um assunto por commit.
 - Nada de biblioteca de animação. CSS e a Web Animations API dão conta.
 - Toda imagem passa pelo `<Image />` do Astro com `widths` e `formats={['avif','webp']}`.
