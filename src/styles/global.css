@@ -1,0 +1,55 @@
+@import '@fontsource/jost/400.css';
+@import '@fontsource/jost/500.css';
+@import '@fontsource/instrument-sans/400.css';
+@import '@fontsource/instrument-sans/500.css';
+@import '@fontsource/instrument-sans/600.css';
+
+:root {
+	/* cor */
+	--paper: #f4f2ed;
+	--sand: #ded7c9;
+	--ash: #c4c1b8;
+	--graphite: #3a3a37;
+	--ink: #121211;
+	--navy: #1b2a4a;
+
+	/* tipografia */
+	--font-display: 'Jost', sans-serif;
+	--font-body: 'Instrument Sans', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	background: var(--paper);
+	color: var(--graphite);
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-body);
+	font-size: 16px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.legenda {
+	font-family: var(--font-display);
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	margin: 0;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}

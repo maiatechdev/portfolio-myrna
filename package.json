@@ -9,13 +9,18 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "converter-pranchas": "node scripts/converter-pranchas.mjs"
   },
   "dependencies": {
+    "@fontsource/instrument-sans": "^5.3.0",
+    "@fontsource/jost": "^5.3.0",
     "astro": "^7.1.6"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "mupdf": "^1.28.0",
+    "sharp": "^0.35.3",
     "typescript": "^6.0.3"
   }
 }
