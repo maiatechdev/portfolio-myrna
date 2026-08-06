@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-05T20:15:00.000Z",
+  "title": "Design System: Portfólio Ana Myrna Matos",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Papel", "canonical": "oklch(96% 0.005 90)", "tonalRamp": ["oklch(15% 0.005 90)", "oklch(28% 0.005 90)", "oklch(41% 0.005 90)", "oklch(54% 0.005 90)", "oklch(67% 0.005 90)", "oklch(80% 0.005 90)", "oklch(90% 0.005 90)", "oklch(96% 0.005 90)"] },
+      "sand": { "role": "neutral", "displayName": "Areia", "canonical": "oklch(87% 0.02 75)", "tonalRamp": ["oklch(15% 0.02 75)", "oklch(28% 0.02 75)", "oklch(41% 0.02 75)", "oklch(54% 0.02 75)", "oklch(67% 0.02 75)", "oklch(78% 0.02 75)", "oklch(83% 0.02 75)", "oklch(87% 0.02 75)"] },
+      "ash": { "role": "neutral", "displayName": "Cinza Rebaixado", "canonical": "oklch(79% 0.006 90)", "tonalRamp": ["oklch(15% 0.006 90)", "oklch(28% 0.006 90)", "oklch(41% 0.006 90)", "oklch(54% 0.006 90)", "oklch(67% 0.006 90)", "oklch(74% 0.006 90)", "oklch(77% 0.006 90)", "oklch(79% 0.006 90)"] },
+      "graphite": { "role": "neutral", "displayName": "Grafite", "canonical": "oklch(35% 0.004 100)", "tonalRamp": ["oklch(12% 0.004 100)", "oklch(20% 0.004 100)", "oklch(28% 0.004 100)", "oklch(35% 0.004 100)", "oklch(45% 0.004 100)", "oklch(58% 0.004 100)", "oklch(72% 0.004 100)", "oklch(88% 0.004 100)"] },
+      "ink": { "role": "neutral", "displayName": "Tinta", "canonical": "oklch(15% 0.002 100)", "tonalRamp": ["oklch(8% 0.002 100)", "oklch(15% 0.002 100)", "oklch(24% 0.002 100)", "oklch(34% 0.002 100)", "oklch(46% 0.002 100)", "oklch(60% 0.002 100)", "oklch(76% 0.002 100)", "oklch(90% 0.002 100)"] },
+      "navy": { "role": "primary", "displayName": "Navy de Prancheta", "canonical": "oklch(28% 0.07 260)", "tonalRamp": ["oklch(12% 0.05 260)", "oklch(20% 0.06 260)", "oklch(28% 0.07 260)", "oklch(37% 0.08 260)", "oklch(48% 0.08 260)", "oklch(60% 0.07 260)", "oklch(75% 0.05 260)", "oklch(90% 0.02 260)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display — legenda", "purpose": "Aplicado por padrão a h1–h4 e .legenda: títulos de seção, legendas técnicas, caixa alta, tracking largo (0.14em)." },
+      "display-hero": { "displayName": "Display — hero", "purpose": "Variante só do wordmark POR/TFÓ/LIO na hero, tracking mais fechado (0.05em) que o padrão do display." },
+      "body": { "displayName": "Corpo", "purpose": "Texto corrente. Instrument Sans, 400 base; 500/600 carregados para ênfase, ainda sem uso confirmado." }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Hero",
+      "kind": "custom",
+      "refersTo": "hero",
+      "description": "Imagem de planta baixa full-bleed como fundo, com o wordmark PORTFÓLIO (POR/TFÓ/LIO empilhado) posicionado sobre o vazio da planta.",
+      "html": "<div class=\"ds-hero\">\n  <img class=\"ds-hero__bg\" src=\"/hero-planta.png\" alt=\"\" />\n  <h1 class=\"ds-hero__titulo\" aria-label=\"Ana Myrna Matos — Portfólio\">\n    <span aria-hidden=\"true\">POR</span>\n    <span aria-hidden=\"true\">TFÓ</span>\n    <span aria-hidden=\"true\">LIO</span>\n  </h1>\n</div>",
+      "css": ".ds-hero { position: relative; width: 100%; aspect-ratio: 1536 / 1024; background: var(--paper, #f4f2ed); } .ds-hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; } .ds-hero__titulo { position: absolute; left: 29%; top: 34%; width: 32%; font-family: var(--font-display, 'Jost', sans-serif); font-weight: 500; line-height: 0.92; color: var(--graphite, #3a3a37); font-size: clamp(1.6rem, 5vw, 4rem); letter-spacing: 0.05em; text-transform: uppercase; } .ds-hero__titulo span { display: block; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Prancheta Editorial",
+    "overview": "O sistema cruza o vocabulário de uma prancha técnica de arquitetura com o de uma publicação editorial. Nada é ilustração genérica: a capa do site é uma planta baixa real, desenhada à mão pela própria autora, com a palavra PORTFÓLIO ocupando o vazio do desenho como se fosse um pátio. Tipografia funciona como anotação de prancha — caixa alta, tracking largo, discreta — e a cor é usada como se fosse instrumento de desenho técnico: grafite para o traço, papel para o fundo, navy só onde uma prancheta real usaria uma linha de destaque. O erro a evitar, nomeado explicitamente pelo projeto, é parecer template de banco de imagens. Presença visual vem de escassez (o navy aparece pouco: uma linha, um marcador, os links) e de assimetria proposital, nunca de decoração.",
+    "keyCharacteristics": [
+      "Traço técnico real como identidade gráfica, não ilustração genérica",
+      "Tipografia-legenda: caixa alta, tracking largo, discreta",
+      "Cor por escassez: neutros dominam, navy é raro e proposital",
+      "Sem sombra, sem raio de borda — superfícies planas, silhueta retilínea",
+      "Acervo fotográfico heterogêneo tratado como ritmo estrutural, não como problema a esconder"
+    ],
+    "rules": [
+      { "name": "The Scarcity Rule", "body": "O navy aparece em, no máximo, um elemento por composição — uma linha, um marcador, um link. Presença vem de raridade, não de repetição.", "section": "colors" },
+      { "name": "The Ink/Paper Rhythm Rule", "body": "Seções de render usam fundo ink, seções de planta/maquete/diagrama usam fundo paper. O contraste entre as duas é o ritmo da página.", "section": "colors" },
+      { "name": "The Legenda Rule", "body": "Qualquer texto em Jost é caixa alta com tracking largo (0.12–0.2em) — é sempre legenda de prancha, nunca título decorativo.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Nenhuma superfície recebe sombra. Se uma seção precisa se destacar da vizinha, o recurso é trocar ink↔paper, não adicionar profundidade.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar tinta e papel como os dois únicos fundos de seção; a alternância entre eles é o ritmo da página.",
+      "Do reservar Jost para texto que deveria ler como legenda técnica — caixa alta, tracking 0.12–0.2em.",
+      "Do manter toda imagem passando pelo pipeline astro:assets (<Picture>/<Image>, formats={['avif','webp']}).",
+      "Do manter cantos retos e superfícies planas — zero border-radius, zero box-shadow — em qualquer componente novo."
+    ],
+    "donts": [
+      "Don't usar navy em área preenchida ou em mais de um elemento por composição.",
+      "Don't colocar duas imagens do mesmo tamanho lado a lado, nem centralizar layout por padrão.",
+      "Don't reintroduzir animação de traço/vetorização da capa — já foi tentado e descartado.",
+      "Don't adicionar biblioteca de animação."
+    ]
+  }
+}
