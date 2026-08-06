@@ -25,6 +25,9 @@ Thumbs.db
 # acervo bruto (177 MB, nao versionar - ver CLAUDE.md)
 /Roteiro Portfólio/
 
+# saida da skill graphify (cache/analise de codebase, nao e codigo do site)
+/graphify-out/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
