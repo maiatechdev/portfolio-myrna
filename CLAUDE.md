@@ -51,20 +51,13 @@ O acervo é visualmente heterogêneo e isso vira estrutura em vez de acidente:
 
 Ela desenhou à mão uma planta baixa envolvendo a palavra PORTFÓLIO empilhada em três linhas (POR / TFÓ / LIO), com a tipografia ocupando o vazio da planta como se fosse um pátio.
 
-**Esse desenho é o sistema gráfico inteiro, não só a capa.** Precisa ser vetorizado em SVG (não usar o PNG de 9 MB) e reutilizado como:
-
-- Hero animado, com o traço se desenhando via `stroke-dasharray` + `stroke-dashoffset`.
-- Marca d'água discreta nas divisórias de seção.
-- Transição entre projetos.
-- Favicon e Open Graph.
-
-Respeitar `prefers-reduced-motion`: sem animação de traço, o desenho aparece completo.
+**Decisão revista:** a ideia original era vetorizar o desenho à mão e animar o traço se desenhando (`stroke-dasharray`). Foi tentado e descartado — o resultado ficou ruim. Abordagem atual, mais simples: uma foto/print de planta baixa (`src/assets/hero-planta.png`, via `Roteiro Portfólio/Fotos/hero.png`) como imagem de fundo estática da hero, com "PORTFÓLIO" (POR/TFÓ/LIO) em Jost sobreposto no vazio da planta, sem animação de traço. Ver [Hero.astro](src/components/Hero.astro).
 
 ## Modelo de conteúdo (Sanity)
 
 Dois tipos, porque os projetos têm maturidade muito desigual:
 
-**`caseCompleto`** — hoje só o Centro Cultural RUA. Campos: título, subtítulo, frase de abertura, ano, disciplina, instituição, orientação, autoria, localização, área do terreno, área construída, programa (array por pavimento), conceito, partido, processo, conclusão, palavras-chave, galeria de imagens com legenda, pranchas técnicas (SVG), ordem.
+**`caseCompleto`** — hoje só o Centro Cultural RUA. Campos: título, subtítulo, frase de abertura, ano, disciplina, instituição, orientação, autoria, localização, área do terreno, área construída, programa (array por pavimento), conceito, partido, processo, conclusão, palavras-chave, galeria de imagens com legenda, pranchas técnicas (imagem rasterizada — ver "Acervo real"), ordem.
 
 **`estudoCurto`** — Capilla de las Sombras, Limiar e cozinha Safira. Campos: título, tipo (maquete / interiores), ano, disciplina, autoria, obra original e autor original (opcionais, para releituras), frase de abertura, texto único de 3 a 4 frases, galeria, ordem.
 
@@ -72,7 +65,7 @@ Mais: um singleton `sobre` (bio, foto, mini currículo, contatos, links) e `conf
 
 ## Estrutura do site
 
-- `/` — hero com a capa animada, índice dos projetos com imagem e dados básicos.
+- `/` — hero com a capa (imagem estática), índice dos projetos com imagem e dados básicos.
 - `/projetos/[slug]` — página do projeto, layout diferente por tipo de conteúdo.
 - `/sobre` — retrato, apresentação, mini currículo, contatos, botão de download do PDF.
 
@@ -84,7 +77,7 @@ Está em `Roteiro Portfólio/`. Números que importam para o pipeline de imagem:
 
 **Centro Cultural RUA** (nov/2025, orientação de Adriano Leal, terreno de 1.762 m² em frente ao Terminal Aeroporto de Lauro de Freitas). Conceito: "a cidade entra e a arte sai". Frase de abertura: "onde o concreto fala, a arte responde".
 - 9 renders, 9 capturas do modelo 3D, apresentação de 9 páginas em 16:9.
-- 6 pranchas em PDF **vetorial de verdade** (situação, layout, térreo, superior, corte, fachada). Converter para SVG e animar o traço ao rolar. É o diferencial técnico do site.
+- 6 pranchas em PDF vetorial (situação, layout, térreo, superior, corte, fachada) em `Roteiro Portfólio/Projetos/Centro Cultural RUA/`. **Decisão revista:** a ideia original era exportar como SVG e animar o traço ao rolar — mesmo raciocínio da capa, descartado pelo mesmo motivo (complexidade sem ganho real, e o SVGO trava/faz arquivo pesado num desenho técnico tão denso). Abordagem atual: `scripts/converter-pranchas.mjs` rasteriza cada PDF via `mupdf` em PNG de 3000px de largura (`src/assets/pranchas/*.png`), que entra no pipeline normal `astro:assets`/`<Picture>` (AVIF/WebP). Zoom seguinte ainda fica legível; não é vetor de verdade.
 - Ignorar o arquivo `.rte` de 95 MB, é do Revit.
 
 **Capilla de las Sombras** e **Limiar**: só fotos de maquete física. Conteúdo textual pendente.
@@ -101,8 +94,8 @@ Só o Centro Cultural RUA tem texto pronto. Os outros três estão aguardando a 
 
 1. Scaffold do Astro com TypeScript e a estrutura de rotas acima.
 2. Tokens de CSS e fontes carregadas localmente (`@fontsource`), sem chamada externa em runtime.
-3. Vetorizar a capa em SVG e montar o componente do hero, com a animação de traço e o fallback de `prefers-reduced-motion`.
-4. Um script que converta os PDFs vetoriais das pranchas em SVG otimizado.
+3. ~~Vetorizar a capa~~ — feito e descartado (ver "A capa"). Componente do hero usa imagem estática.
+4. ~~Converter pranchas em SVG~~ — feito e descartado (ver "Acervo real"). `scripts/converter-pranchas.mjs` rasteriza em PNG em vez disso.
 
 Só depois disso: schemas do Sanity e páginas de projeto.
 
