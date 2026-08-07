@@ -12,9 +12,13 @@
       "navy": { "role": "primary", "displayName": "Navy de Prancheta", "canonical": "oklch(28% 0.07 260)", "tonalRamp": ["oklch(12% 0.05 260)", "oklch(20% 0.06 260)", "oklch(28% 0.07 260)", "oklch(37% 0.08 260)", "oklch(48% 0.08 260)", "oklch(60% 0.07 260)", "oklch(75% 0.05 260)", "oklch(90% 0.02 260)"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display — legenda", "purpose": "Aplicado por padrão a h1–h4 e .legenda: títulos de seção, legendas técnicas, caixa alta, tracking largo (0.14em)." },
-      "display-hero": { "displayName": "Display — hero", "purpose": "Variante só do wordmark POR/TFÓ/LIO na hero, tracking mais fechado (0.05em) que o padrão do display." },
-      "body": { "displayName": "Corpo", "purpose": "Texto corrente. Instrument Sans, 400 base; 500/600 carregados para ênfase, ainda sem uso confirmado." }
+      "display": { "displayName": "Display — títulos", "purpose": "Aplicado por padrão a h1–h4: títulos de seção, caixa alta, tracking largo (0.14em), sem tamanho fixo (herda o padrão do navegador por nível)." },
+      "display-hero": { "displayName": "Display — hero da home", "purpose": "Variante só do wordmark POR/TFÓ/LIO na hero da home, tracking mais fechado (0.05em) que o padrão do display." },
+      "display-titulo": { "displayName": "Display — título de projeto", "purpose": "Título de página de projeto (ex.: Centro Cultural RUA). Mesma família da hero, limite inferior maior por ser uma linha só." },
+      "legenda": { "displayName": "Legenda técnica", "purpose": "Legenda de imagem (créditos/descrição de figura) — o degrau mais reduzido da escala, 10px." },
+      "legenda-frase": { "displayName": "Legenda — frase de abertura", "purpose": "Frase de efeito sobreposta à imagem de abertura de um projeto — maior que a legenda técnica por ser a única linha da composição." },
+      "cta": { "displayName": "CTA", "purpose": "Rótulo de link/ação (baixar PDF, contato) — maior que a legenda técnica por precisar de alvo de toque confiável." },
+      "body": { "displayName": "Corpo", "purpose": "Texto corrente. Instrument Sans, 400 base; 500/600 carregados para ênfase, ainda sem uso confirmado. Parágrafos editoriais longos usam line-height 1.7 em vez de 1.5, mesmo tamanho." }
     },
     "shadows": [],
     "motion": [],
@@ -28,6 +32,22 @@
       "description": "Imagem de planta baixa full-bleed como fundo, com o wordmark PORTFÓLIO (POR/TFÓ/LIO empilhado) posicionado sobre o vazio da planta.",
       "html": "<div class=\"ds-hero\">\n  <img class=\"ds-hero__bg\" src=\"/hero-planta.png\" alt=\"\" />\n  <h1 class=\"ds-hero__titulo\" aria-label=\"Ana Myrna Matos — Portfólio\">\n    <span aria-hidden=\"true\">POR</span>\n    <span aria-hidden=\"true\">TFÓ</span>\n    <span aria-hidden=\"true\">LIO</span>\n  </h1>\n</div>",
       "css": ".ds-hero { position: relative; width: 100%; aspect-ratio: 1536 / 1024; background: var(--paper, #f4f2ed); } .ds-hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; } .ds-hero__titulo { position: absolute; left: 29%; top: 34%; width: 32%; font-family: var(--font-display, 'Jost', sans-serif); font-weight: 500; line-height: 0.92; color: var(--graphite, #3a3a37); font-size: clamp(1.6rem, 5vw, 4rem); letter-spacing: 0.05em; text-transform: uppercase; } .ds-hero__titulo span { display: block; }"
+    },
+    {
+      "name": "Figura",
+      "kind": "custom",
+      "refersTo": "figura",
+      "description": "Bloco de imagem com legenda técnica — usado em toda galeria (renders, capturas de modelo, pranchas) de página de projeto.",
+      "html": "<figure class=\"ds-figura\">\n  <img src=\"exemplo.jpg\" alt=\"\" />\n  <figcaption class=\"ds-figura__legenda\">Legenda técnica</figcaption>\n</figure>",
+      "css": ".ds-figura { margin: 0; } .ds-figura img { width: 100%; height: 100%; object-fit: cover; display: block; } .ds-figura__legenda { margin-top: 0.5rem; font-family: var(--font-display, 'Jost', sans-serif); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--graphite, #3a3a37); }"
+    },
+    {
+      "name": "CTA link",
+      "kind": "button",
+      "refersTo": "cta",
+      "description": "Link de ação sobre fundo escuro (baixar PDF, contato) — o único uso de navy do sistema, aplicado como cor de texto/sublinhado, nunca como preenchimento.",
+      "html": "<a class=\"ds-cta\" href=\"#\">Baixar apresentação em PDF</a>",
+      "css": ".ds-cta { color: var(--navy, #1b2a4a); background: var(--paper, #f4f2ed); display: inline-block; width: fit-content; padding: 0.75rem 1.5rem; font-family: var(--font-display, 'Jost', sans-serif); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.8rem; text-decoration: underline; text-underline-offset: 0.25em; text-decoration-thickness: 1px; } .ds-cta:hover, .ds-cta:focus-visible { text-decoration-thickness: 2px; }"
     }
   ],
   "narrative": {

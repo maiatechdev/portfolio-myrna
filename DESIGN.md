@@ -19,6 +19,24 @@ typography:
     fontWeight: 500
     lineHeight: 0.92
     letterSpacing: "0.05em"
+  display-titulo:
+    fontFamily: "Jost, sans-serif"
+    fontSize: "clamp(2rem, 6vw, 4rem)"
+    fontWeight: 500
+    letterSpacing: "0.05em"
+  legenda:
+    fontFamily: "Jost, sans-serif"
+    fontSize: "10px"
+    fontWeight: 400
+    letterSpacing: "0.14em"
+  legenda-frase:
+    fontFamily: "Jost, sans-serif"
+    fontSize: "clamp(1rem, 2.2vw, 1.5rem)"
+    letterSpacing: "0.1em"
+  cta:
+    fontFamily: "Jost, sans-serif"
+    fontSize: "0.8rem"
+    letterSpacing: "0.14em"
   body:
     fontFamily: "Instrument Sans, sans-serif"
     fontSize: "16px"
@@ -75,9 +93,13 @@ Paleta quase monocromática — uma escala de neutros do papel à tinta — com 
 **Character:** Jost foi escolhida por ficar perto da Century Gothic que a autora já usa nas próprias pranchas técnicas — a tipografia do site cita a tipografia dela no papel. Em caixa alta e tracking largo, Jost lê como legenda/anotação técnica, não como título editorial comum. Instrument Sans carrega o corpo de texto sem competir com isso.
 
 ### Hierarchy
-- **Display — uso geral** (peso 400, `text-transform: uppercase`, tracking 0.14em): aplicado a todo h1–h4 e à classe `.legenda` por padrão — títulos de seção e legendas técnicas.
-- **Display — hero** (peso 500, `clamp(1.6rem, 5vw, 4rem)`, line-height 0.92, tracking 0.05em): variante específica do wordmark "PORTFÓLIO" empilhado (POR/TFÓ/LIO) na hero — tracking mais fechado que o padrão porque a palavra já está partida em três linhas.
-- **Body** (peso 400, 16px, line-height 1.5): texto corrente. Pesos 500 e 600 carregados para ênfase, ainda sem uso confirmado em componente.
+- **Display — uso geral** (peso 400, `text-transform: uppercase`, tracking 0.14em): aplicado a todo h1–h4 por padrão — títulos de seção sem tamanho fixo (herdam o tamanho padrão do navegador para cada nível).
+- **Display — hero** (peso 500, `clamp(1.6rem, 5vw, 4rem)`, line-height 0.92, tracking 0.05em): variante específica do wordmark "PORTFÓLIO" empilhado (POR/TFÓ/LIO) na hero da home — tracking mais fechado que o padrão porque a palavra já está partida em três linhas.
+- **Display — título de projeto** (peso 500, `clamp(2rem, 6vw, 4rem)`, tracking 0.05em): título de página de projeto (ex.: "Centro Cultural RUA"). Mesma família da hero, mas limite inferior maior — é uma única linha corrida, não três palavras empilhadas num vazio apertado.
+- **Legenda** (peso 400, 10px, tracking 0.14em, caixa alta): legenda técnica de imagem — a peça mais reduzida da escala, para créditos/descrição de figura.
+- **Legenda — frase de abertura** (`clamp(1rem, 2.2vw, 1.5rem)`, tracking 0.1em, caixa alta): frase de efeito sobreposta à imagem de abertura de um projeto (ex.: "onde o concreto fala, a arte responde") — maior que a legenda técnica porque é a única linha da composição, não uma legenda de apoio.
+- **CTA** (0.8rem, tracking 0.14em, caixa alta, sublinhado): rótulo de link/ação (baixar PDF, contato). Deliberadamente maior que a legenda técnica — é acionável, precisa de alvo de toque confiável.
+- **Body** (peso 400, 16px, line-height 1.5): texto corrente. Pesos 500 e 600 carregados para ênfase, ainda sem uso confirmado em componente. Parágrafos editoriais longos (conceito/partido) usam line-height 1.7 no lugar de 1.5 — texto mais respirado para leitura longa — mas mantêm o mesmo tamanho de 16px, não é um passo novo na escala.
 
 ### Named Rules
 **The Legenda Rule.** Qualquer texto em Jost é caixa alta com tracking largo (0.12–0.2em) — é sempre "legenda de prancha", nunca título decorativo. Se o texto não deveria ler como anotação técnica, ele não vai em Jost.
