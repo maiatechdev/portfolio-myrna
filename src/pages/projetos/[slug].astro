@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ProjetoCompleto from '../../components/ProjetoCompleto.astro';
+import { rua } from '../../data/rua';
 
 // PLACEHOLDER: os slugs virão de uma query ao Sanity (caseCompleto + estudoCurto).
 // Layout da página varia por tipo de conteúdo — a decidir quando os schemas existirem.
@@ -13,10 +15,19 @@ export function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
+const ehRua = slug === rua.slug;
 ---
 
-<Layout title={`${slug} — Ana Myrna Matos`}>
+<Layout title={ehRua ? `${rua.titulo} — Ana Myrna Matos` : `${slug} — Ana Myrna Matos`}>
 	<main>
-		<!-- Página do projeto entra aqui, layout diferente por tipo de conteúdo (caseCompleto / estudoCurto) -->
+		{
+			ehRua ? (
+				<ProjetoCompleto data={rua} />
+			) : (
+				<p>
+					{/* PLACEHOLDER: estudoCurto (Capilla de las Sombras, Limiar, Cozinha Safira) aguardando conteúdo da cliente. */}
+				</p>
+			)
+		}
 	</main>
 </Layout>
